@@ -19,7 +19,7 @@ typedef enum {
     ValvulaQuatroAberta = 41,
     ValvulaQuatroFechada = 40,
     ValvulaCincoAberta = 51,
-    ValvulaCincoFechada = 50,
+    ValvulaCincoFechada = 50
 }
 RETURN_SERVER;
 
