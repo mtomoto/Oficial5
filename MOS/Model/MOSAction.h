@@ -13,7 +13,8 @@
 @property (strong, nonatomic) NSString *key;
 @property (strong, nonatomic) NSString *label;
 @property (strong, nonatomic) NSString *information;
-@property (strong, nonatomic) NSNumber *cmdID;
+@property (strong, nonatomic) NSNumber *cmdIDOn;
+@property (strong, nonatomic) NSNumber *cmdIDOff;
 @property BOOL acks; // Acknowledgment
 
 - (instancetype)initWithJsonDictionary:(NSDictionary *)jsonDictionary;

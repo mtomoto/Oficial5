@@ -44,6 +44,11 @@
 }
 */
 
+- (IBAction)actionClearLogs:(id)sender {
+    NSString *fullLog = @"";
+    self.logView.text = fullLog;
+}
+
 - (void)updateLogView {
     NSString *fullLog = @"";
     

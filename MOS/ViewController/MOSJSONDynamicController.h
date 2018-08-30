@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "MOSSection.h"
+#import "StatusProtocol.h"
 
-@interface MOSJSONDynamicController : UITableViewController
+@interface MOSJSONDynamicController : UITableViewController<IStatusProtocolDelegate>{
+   __weak NSObject<IStatusProtocolDelegate> * _delegateUsuario;
+}
 
 @property (weak, nonatomic) AppDelegate *appDelegate;
 @property (weak, nonatomic) MOSSection *section;
+
 
 @end

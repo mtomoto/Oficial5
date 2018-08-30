@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C8A8E19213726880034024B /* ColorSuporte.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8A8E18213726880034024B /* ColorSuporte.m */; };
+		4C8A8E1C213727630034024B /* ButtonOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8A8E1B213727630034024B /* ButtonOn.m */; };
+		4C8A8E1F213727780034024B /* ButtonOff.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8A8E1E213727780034024B /* ButtonOff.m */; };
 		861CE7A61D3DE46700F33075 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CE7A51D3DE46700F33075 /* main.m */; };
 		861CE7A91D3DE46700F33075 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 861CE7A81D3DE46700F33075 /* AppDelegate.m */; };
 		861CE7B21D3DE46700F33075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861CE7B01D3DE46700F33075 /* Main.storyboard */; };
@@ -43,6 +46,13 @@
 
 /* Begin PBXFileReference section */
 		15356F2C2134771E00D9DD8E /* Enum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enum.h; sourceTree = "<group>"; };
+		4C8A8E17213726880034024B /* ColorSuporte.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorSuporte.h; sourceTree = "<group>"; };
+		4C8A8E18213726880034024B /* ColorSuporte.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorSuporte.m; sourceTree = "<group>"; };
+		4C8A8E1A213727630034024B /* ButtonOn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonOn.h; sourceTree = "<group>"; };
+		4C8A8E1B213727630034024B /* ButtonOn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonOn.m; sourceTree = "<group>"; };
+		4C8A8E1D213727780034024B /* ButtonOff.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonOff.h; sourceTree = "<group>"; };
+		4C8A8E1E213727780034024B /* ButtonOff.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonOff.m; sourceTree = "<group>"; };
+		4CD3F88E213873FB00AB86BD /* StatusProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusProtocol.h; sourceTree = "<group>"; };
 		861CE7A11D3DE46700F33075 /* DJI O-SDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DJI O-SDK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		861CE7A51D3DE46700F33075 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		861CE7A71D3DE46700F33075 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,9 +98,31 @@
 		15356F2B2134770400D9DD8E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4CD3F88D213873CC00AB86BD /* Protocols */,
 				15356F2C2134771E00D9DD8E /* Enum.h */,
+				4C8A8E17213726880034024B /* ColorSuporte.h */,
+				4C8A8E18213726880034024B /* ColorSuporte.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		4C8A8E102137186F0034024B /* Botao */ = {
+			isa = PBXGroup;
+			children = (
+				4C8A8E1A213727630034024B /* ButtonOn.h */,
+				4C8A8E1B213727630034024B /* ButtonOn.m */,
+				4C8A8E1D213727780034024B /* ButtonOff.h */,
+				4C8A8E1E213727780034024B /* ButtonOff.m */,
+			);
+			path = Botao;
+			sourceTree = "<group>";
+		};
+		4CD3F88D213873CC00AB86BD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4CD3F88E213873FB00AB86BD /* StatusProtocol.h */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		861CE7981D3DE46700F33075 = {
@@ -154,6 +186,7 @@
 		861CE7DC1D3E760500F33075 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				4C8A8E102137186F0034024B /* Botao */,
 				861CE7DD1D3E760500F33075 /* MOSDynamicTableViewCell.h */,
 				861CE7DE1D3E760500F33075 /* MOSDynamicTableViewCell.m */,
 				861CE7DF1D3E760500F33075 /* MOSDynamicTableViewCell.xib */,
@@ -218,7 +251,7 @@
 				TargetAttributes = {
 					861CE7A01D3DE46700F33075 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = B6793SZMWV;
+						DevelopmentTeam = L39TQ3H49G;
 					};
 				};
 			};
@@ -284,9 +317,12 @@
 				861CE7A91D3DE46700F33075 /* AppDelegate.m in Sources */,
 				8665E47D1D419D1400E67120 /* MOSSection.m in Sources */,
 				861CE7A61D3DE46700F33075 /* main.m in Sources */,
+				4C8A8E1F213727780034024B /* ButtonOff.m in Sources */,
 				861CE7EF1D3E761A00F33075 /* MOSAction.m in Sources */,
 				861CE7E81D3E760500F33075 /* MOSDynamicTableViewCell.m in Sources */,
+				4C8A8E1C213727630034024B /* ButtonOn.m in Sources */,
 				8665E4811D41A30300E67120 /* MOSProductCommunicationManager.m in Sources */,
+				4C8A8E19213726880034024B /* ColorSuporte.m in Sources */,
 				861CE7EA1D3E760500F33075 /* MOSJSONDynamicController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,7 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B6793SZMWV;
+				DEVELOPMENT_TEAM = L39TQ3H49G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -420,7 +456,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = B6793SZMWV;
+				DEVELOPMENT_TEAM = L39TQ3H49G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

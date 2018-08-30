@@ -16,8 +16,9 @@
     if (self) {
         _key = @"N/A";
         _label = @"N/A";
-        _information = @"";;
-        _cmdID = @-1;
+        _information = @"";
+        _cmdIDOn = @-1;
+        _cmdIDOff= @-1;
         _acks = NO;
         
     }
@@ -44,15 +45,26 @@
             self.information = jsonCommandInfo;
         }
         
-        NSString *jsonCmdID = [jsonDictionary objectForKey:@"cmd_id"];
-        if (jsonCmdID) {
+        NSString *jsonCmdIDOn = [jsonDictionary objectForKey:@"cmd_idOn"];
+        if (jsonCmdIDOn) {
             unsigned int result = 0;
-            NSScanner *scanner = [NSScanner scannerWithString:jsonCmdID];
+            NSScanner *scanner = [NSScanner scannerWithString:jsonCmdIDOn];
             
             [scanner setScanLocation:2]; // bypass '0x' character
             [scanner scanHexInt:&result];
             
-            self.cmdID = [NSNumber numberWithUnsignedInt:result];
+            self.cmdIDOn = [NSNumber numberWithUnsignedInt:result];
+        }
+        
+        NSString *jsonCmdIDOff = [jsonDictionary objectForKey:@"cmd_idOff"];
+        if (jsonCmdIDOff) {
+            unsigned int result = 0;
+            NSScanner *scanner = [NSScanner scannerWithString:jsonCmdIDOff];
+            
+            [scanner setScanLocation:2]; // bypass '0x' character
+            [scanner scanHexInt:&result];
+            
+            self.cmdIDOff = [NSNumber numberWithUnsignedInt:result];
         }
         
         NSNumber *jsonAck = [jsonDictionary objectForKey:@"ack"];

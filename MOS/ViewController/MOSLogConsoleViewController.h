@@ -14,6 +14,9 @@
 @property (weak, nonatomic) AppDelegate *appDelegate;
 @property (weak, nonatomic) IBOutlet UITextView *logView;
 
+
+- (IBAction)actionClearLogs:(id)sender;
+
 - (void)updateLogView;
 
 @end

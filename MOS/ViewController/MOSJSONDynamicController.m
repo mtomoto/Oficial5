@@ -32,6 +32,8 @@
 
     UIEdgeInsets currentEdgeInset = self.tableView.contentInset;
     self.tableView.contentInset = UIEdgeInsetsMake(20, currentEdgeInset.left, 50, currentEdgeInset.right);
+    
+    _delegateUsuario = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +51,6 @@
     
     return self.section.actions.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -71,47 +72,59 @@
                                                 withCompletion:^(NSError * _Nullable error) {
                                                     [self.appDelegate.model addLog:[NSString stringWithFormat:@"Sent CmdID %@", cmdId]];
                                                     weakCell.commandResultLabel.text = @"Command Sent!";
+                                                    
                                                 }
                                                    andAckBlock:^(NSData * _Nonnull data, NSError * _Nullable error) {
                                                        
                                                        NSData *ackData = [data subdataWithRange:NSMakeRange(2, [data length] - 2)];
                                                        uint16_t ackValue;
                                                        [ackData getBytes:&ackValue length:sizeof(uint16_t)];
-                                                       
+                                                       BOOL status = false;
                                                        NSString *resposta = @"" ;
                                                        switch (ackValue) {
                                                            case ValvulaUmAberta:
                                                                resposta = @"Válvula 1 aberta";
+                                                               status = true;
                                                                break;
                                                            case ValvulaUmFechada:
                                                                resposta = @"Válvula 1 fechada";
+                                                               status = false;
                                                                break;
                                                            case ValvulaDoisAberta:
                                                                resposta = @"Válvula 2 aberta";
+                                                                status = true;
                                                                break;
                                                            case ValvulaDoisFechada:
                                                                resposta = @"Válvula 2 fechada";
+                                                               status = false;
                                                                break;
                                                            case ValvulaTresAberta:
                                                                resposta = @"Válvula 3 aberta";
+                                                                status = true;
                                                                break;
                                                            case ValvulaTresFechada:
                                                                resposta = @"Válvula 3 fechada";
+                                                               status = false;
                                                                break;
                                                            case ValvulaQuatroAberta:
                                                                resposta = @"Válvula 4 aberta";
+                                                                status = true;
                                                                break;
                                                            case ValvulaQuatroFechada:
                                                                resposta = @"Válvula 4 fechada";
+                                                               status = false;
                                                                break;
                                                            case ValvulaCincoAberta:
                                                                resposta = @"Válvula 5 aberta";
+                                                                status = true;
                                                                break;
                                                            case ValvulaCincoFechada:
                                                                resposta = @"Válvula 1 fechada";
+                                                                status = false;
                                                                break;
                                                            default:
                                                                resposta = @"Resposta não identificada";
+                                                               status = false;
                                                                break;
                                                        }
                                                        
@@ -122,6 +135,13 @@
                                                        dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 2.0);
                                                        dispatch_after(delay, dispatch_get_main_queue(), ^(void){
                                                            weakCell.commandResultLabel.text = responseMessage;
+                                                           
+                                                           if (status) {
+                                                               [_delegateUsuario changeStatus:YES];
+                                                           }else{
+                                                                [_delegateUsuario changeStatus:NO];
+                                                           }
+                                                    
                                                        });
                                                    }];
     };
